@@ -1,0 +1,1021 @@
+
+
+CREATE DATABASE Example
+Example
+CREATE DATABASE xyz;
+
+
+
+
+
+
+
+
+
+SQL CREATE TABLE Example
+Example
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+
+1.	SQL> CREATE TABLE STUDENTS (  
+2.	ID INT                           NOT NULL,  
+3.	NAME VARCHAR (20) NOT NULL,  
+4.	AGE INT                         NOT NULL,  
+5.	ADDRESS CHAR (25),  
+6.	PRIMARY KEY (ID)  
+7.	);  
+
+
+
+INSERT INTO Example
+INSERT INTO Persons (FirstName, LastName)
+VALUES ('Lars','Monsen');
+
+The following SQL statement inserts a new record in the "Customers" table:
+Example
+INSERT INTO Product (Productid, Productname, Productprice, CompanyName)
+VALUES (101, 'Ace+', 20, 'Squire');
+
+
+
+
+
+Insert Data Only in Specified Columns
+Example
+INSERT INTO Product (Productname, Productprice, CompanyName)
+VALUES ('Ace+', 20, 'Squire');
+
+
+
+
+
+
+
+SELECT Column Example
+Example
+SELECT ProductName, ProductPrice FROM product;
+
+
+SELECT * Example
+The following SQL statement selects all the columns 
+Example
+SELECT * FROM product;
+
+
+How to Rename a Table in MySQL
+ALTER TABLE old_table_name RENAME new_table_name;
+
+
+
+
+
+
+
+
+
+
+
+
+SQL DROP TABLE Example
+The following SQL statement drops the existing table 
+Example
+DROP TABLE product
+
+
+
+
+
+DROP DATABASE Example
+The following SQL statement drops the existing database "testDB":
+Example
+DROP DATABASE xyz;
+
+
+
+
+
+
+
+
+
+
+
+
+The SQL SELECT DISTINCT Statement
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+SELECT DISTINCT Examples
+The following SQL statement selects only the DISTINCT values from the "Country" column in the "Customers" table:
+Example
+SELECT DISTINCT Country FROM Customers;
+
+
+
+
+
+
+
+
+
+Limit
+MySQL supports the LIMIT clause to select a limited number of records. 
+Example
+SELECT * FROM Customers
+LIMIT 3;
+Number of Records: 3
+
+
+
+
+The SQL ORDER BY Keyword
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+ORDER BY Example
+Example
+SELECT * FROM Customers
+ORDER BY Country;
+
+Example
+SELECT * FROM Customers
+ORDER BY Country DESC;
+
+
+
+
+
+
+
+
+
+The SQL WHERE Clause
+It is used to extract only those records that fulfill a specified condition.
+WHERE Clause Example
+Example
+SELECT * FROM Customers
+WHERE Country='Mexico';
+
+
+
+
+
+
+
+SQL Arithmetic Operators
+Operator	Description	Example
++	Add	
+-	Subtract	
+*	Multiply	
+/	Divide	
+%	Modulo	
+
+
+ALTER TABLE - ADD Column
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+SQL Arithmetic Operators
+Example:
+Update customers 
+Set salary = salary + 1000
+Where id = 7;
+
+
+
+
+
+
+
+
+
+
+The SQL BETWEEN Operator
+The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+BETWEEN Example
+The following SQL statement selects all products with a price between 10 and 20:
+Example
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+
+
+
+
+
+
+
+
+
+
+
+NOT BETWEEN Example
+To display the products outside the range of the previous example, use NOT BETWEEN:
+Example
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+
+
+AND Example
+Example
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+
+
+
+
+
+
+
+OR Example
+Example
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+Example
+SELECT * FROM Customers
+WHERE Country='Germany' OR Country='Spain';
+ 
+
+NOT Example
+The following SQL statement selects all fields from "Customers" where country is NOT "Germany":
+Example
+SELECT * FROM Customers
+WHERE NOT Country='Germany';
+
+
+Combining AND, OR and NOT
+You can also combine the AND, OR and NOT operators.
+Example
+SELECT * FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='München');
+
+Example
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+
+
+
+
+
+IN Operator Examples
+The following SQL statement selects all customers that are located in "Germany", "France" or "UK":
+Example
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+The following SQL statement selects all customers that are NOT located in "Germany", "France" or "UK":
+Example
+SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+Example
+SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);
+
+
+
+
+
+
+
+
+
+How to Rename a Table in MySQL
+ALTER TABLE old_table_name RENAME new_table_name;
+
+
+The SQL LIKE Operator
+The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+There are two wildcards often used in conjunction with the LIKE operator:
+•	 The percent sign (%) represents zero, one, or multiple characters
+•	 The underscore sign (_) represents one, single character
+•	Here are some examples showing different LIKE operators with '%' and '_' wildcards:
+LIKE Operator	Description
+WHERE CustomerName LIKE 'a%'	Finds any values that start with "a"
+WHERE CustomerName LIKE '%a'	Finds any values that end with "a"
+WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+WHERE CustomerName LIKE 'a_%'	Finds any values that start with "a" and are at least 2 characters in length
+WHERE CustomerName LIKE 'a__%'	Finds any values that start with "a" and are at least 3 characters in length
+WHERE ContactName LIKE 'a%o'	Finds any values that start with "a" and ends with "o"
+
+
+SQL LIKE Examples
+The following SQL statement selects all customers with a CustomerName starting with "a":
+Example
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%'; 
+The following SQL statement selects all customers with a CustomerName ending with "a":
+Example
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%a'; 
+The following SQL statement selects all customers with a CustomerName that have "or" in any position:
+Example
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%or%'; 
+The following SQL statement selects all customers with a CustomerName that have "r" in the second position:
+Example
+SELECT * FROM Customers
+WHERE CustomerName LIKE '_r%'; 
+The following SQL statement selects all customers with a CustomerName that starts with "a" and are at least 3 characters in length:
+Example
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a__%'; 
+The following SQL statement selects all customers with a ContactName that starts with "a" and ends with "o":
+Example
+SELECT * FROM Customers
+WHERE ContactName LIKE 'a%o'; 
+The following SQL statement selects all customers with a CustomerName that does NOT start with "a":
+Example
+SELECT * FROM Customers
+WHERE CustomerName NOT LIKE 'a%';
+
+
+
+
+
+
+
+
+
+
+
+ALTER TABLE - ADD Column
+ALTER TABLE Customers
+ADD Email varchar(255); 
+
+ALTER TABLE - DROP COLUMN
+ALTER TABLE Customers
+DROP COLUMN ContactName;
+
+ALTER TABLE - CHANGE/MODIFY COLUMN DATA TYPE
+
+ALTER TABLE table_name    
+MODIFY column_name datatype;  
+
+
+
+
+
+MYSQL DELETE Example
+To delete single row
+DELETE FROM products WHERE product_id=1;
+
+MySQL TRUNCATE Table
+We use this TRUNCATE command when we want to delete an entire data from a table without removing the table structure. 
+TRUNCATE TABLE customer;  
+
+
+
+DROP TABLE
+DROP TABLE Persons;
+
+
+
+
+
+
+
+MAX() Example
+SELECT MAX(Price) AS LargestPrice
+FROM Products;
+
+MIN() Example
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+SUM() Example
+SELECT SUM(Quantity)
+FROM OrderDetails;
+
+AVG() Example
+SELECT AVG(Price)
+FROM Products;
+
+COUNT() Example
+SELECT COUNT(ProductID)
+FROM Products; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The SQL GROUP BY Statement
+The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+
+
+
+
+
+SQL HAVING Examples
+The following SQL statement lists the number of customers in each country. Only include countries with more than 5 custome
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQL JOIN
+
+INNER JOIN
+The INNER JOIN selects all rows from both tables as long as there is a match between the columns. 
+
+SELECT
+table1.column1,table1.column2,table2
+.column1,....
+FROM table1
+INNER JOIN table2
+ON table1.matching_column =
+table2.matching_column;
+
+select department.Department_No, department.Department_Name, Employee.Employee_Name from department inner JOIN employee on department.Employee_No=employee.Employee_No
+
+
+
+
+
+LEFT JOIN
+The LEFT JOIN returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
+select employee.Employee_No, employee.Employee_Name, department.Department_Name from employee left JOIN department on employee.Employee_No=department.Employee_No
+
+	
+
+
+
+
+
+
+
+
+
+
+
+RIGHT JOIN
+The RIGHT JOIN returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.
+
+select employee.Employee_No, employee.Employee_Name, department.Department_Name from employee right JOIN department on employee.Employee_No=department.Employee_No
+
+
+
+
+
+
+
+FULL JOIN
+The FULL JOIN or FULL OUTER JOIN is used to select all records from the left table and right table. It combines both tables into a result-set and returns it to the user. 
+
+select employee.Employee_No, employee.Employee_Name, department.Department_Name from employee FULL JOIN department on employee.Employee_No=department.Employee_No
+
+Note that MariaDB doesn’t support the full outer join or full join.
+--------
+
+
+
+
+
+
+
+
+Sub Query or Nested Query
+In SQL a sub query or nested query can be simply defined as a query within another query. 
+
+1)select Employee_No, Employee_Name,Employee_Address from employee WHERE
+Employee_No in(select Employee_No from department where department_name='IT' or department_name='HR')
+
+2)update department set Department_Name='Library' 
+where Employee_No in (select Employee_No from employee where employee_name='sharif');
+
+
+
+STUDENT
+S_ID	S_NAME	S_ADDRESS	S_PHONE	S_AGE
+S1	RAM	DELHI	9455123451	18
+S2	RAMESH	GURGAON	9652431543	18
+S3	SUJIT	ROHTAK	9156253131	20
+S4	SURESH	DELHI	9156768971	18
+ 
+COURSE
+C_ID	C_NAME
+C1	DSA
+C2	Programming
+C3	DBMS
+ 
+STUDENT_COURSE
+S_ID	C_ID
+S1	C1
+S1	C3
+S2	C1
+S3	C2
+S4	C2
+S4	C3
+ 
+
+create table student_course (s_id int, c_id int,PRIMARY KEY(s_id,c_id), 
+  FOREIGN key (s_id) references student(s_id),  foreign key (c_id) references course(c_id))
+
+3)If we want to find out names of STUDENTs who have either enrolled in ‘DSA’ or ‘DBMS’, it can be done as:
+
+select s_id from student where s_id in(select s_id from student_course where c_id in 
+                                      (select c_id from course where c_name='DBMS' or c_name='DSA'))
+
+4)If we want to find out S_IDs of STUDENTs who have neither enrolled in ‘DSA’ nor in ‘DBMS’, it can be done as:
+select s_id from student where s_id not in(select s_id from student_course where c_id in               (select c_id from course where c_name='DBMS' or c_name='DSA'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The UNION Operator
+
+Example
+SELECT City FROM Customer
+UNION
+SELECT City FROM Supplier
+ORDER BY City;
+
+
+Example
+SELECT City, Country FROM Customer
+WHERE Country='India'
+UNION
+SELECT City, Country FROM Supplier
+WHERE Country='India'
+ORDER BY City;
+
+UNION ALL Example
+UNION ALL used to select duplicate values. 
+Example
+SELECT City FROM Customer
+UNION ALL
+SELECT City FROM Supplier
+ORDER BY City;
+
+Example
+SELECT City, Country FROM Customer
+WHERE Country='India'
+UNION ALL
+SELECT City, Country FROM Supplier
+WHERE Country='India'
+ORDER BY City;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INTERSECT Operator
+
+Example 
+SELECT City, Country FROM Customer
+WHERE customerid>=1002
+intersect
+SELECT City, Country FROM Supplier
+WHERE supplierid>=2
+ORDER BY City;
+
+
+
+
+
+
+
+
+
+Except or minus operator:
+
+Example:
+SELECT City, Country FROM Customer
+WHERE customerid>=1002
+except
+SELECT City, Country FROM Supplier
+WHERE supplierid>=2
+ORDER BY City;
+
+-------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Domain constraints in DBMS
+Example:
+For example I want to create a table “student_info” with “stu_id” field having value greater than 100, I can create a domain and table like this:
+create domain id_value int
+constraint id_test
+check(value > 100);
+
+create table student_info (
+stu_id id_value PRIMARY KEY,
+stu_name varchar(30),
+stu_age int
+);
+Another example:
+I want to create a table “bank_account” with “account_type” field having value either “checking” or “saving”:
+create domain account_type char(12)
+constraint acc_type_test
+check(value in ("Checking", "Saving"));
+
+create table bank_account (
+account_nbr int PRIMARY KEY,
+account_holder_name varchar(30),
+account_type account_type
+);
+
+
+
+PRIMARY KEY Constraint
+PRIMARY KEY on CREATE TABLE
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+
+DROP a PRIMARY KEY Constraint
+ALTER TABLE Persons
+DROP PRIMARY KEY;
+
+PRIMARY KEY on ALTER TABLE
+ALTER TABLE Persons
+add PRIMARY KEY (id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQL FOREIGN KEY Constraint
+
+
+FOREIGN KEY on CREATE TABLE
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);
+
+DROP a FOREIGN KEY Constraint
+To drop a FOREIGN KEY constraint, use the following SQL:
+ALTER TABLE Orders
+DROP FOREIGN KEY fk
+
+
+
+FOREIGN KEY on ALTER TABLE
+ALTER TABLE Orders
+ADD CONSTRAINT FK
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+Many to many relationship
+STUDENT
+S_ID	S_NAME	S_ADDRESS	S_PHONE	S_AGE
+S1	RAM	DELHI	9455123451	18
+S2	RAMESH	GURGAON	9652431543	18
+S3	SUJIT	ROHTAK	9156253131	20
+S4	SURESH	DELHI	9156768971	18
+ 
+COURSE
+C_ID	C_NAME
+C1	DSA
+C2	Programming
+C3	DBMS
+ 
+STUDENT_COURSE
+S_ID	C_ID
+S1	C1
+S1	C3
+S2	C1
+S3	C2
+S4	C2
+S4	C3
+ 
+
+create table student_course (s_id int, c_id int,PRIMARY KEY(s_id,c_id), 
+  FOREIGN key (s_id) references student(s_id),  foreign key (c_id) references course(c_id))
+
+
+
+
+
+
+
+
+
+
+
+SQL UNIQUE Constraint
+
+CREATE TABLE PersonInfo (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT uc UNIQUE (ID,LastName)
+);
+    
+CREATE TABLE PersonInfo (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT uc UNIQUE (ID)
+);
+
+
+DROP a UNIQUE Constraint
+ALTER TABLE PersonInfo
+DROP CONSTRAINT UC;
+
+
+
+UNIQUE Constraint on ALTER TABLE
+ALTER TABLE PersonInfo
+add CONSTRAINT UC UNIQUE(ID, LastName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOT NULL Constraint
+Example
+CREATE TABLE PersonDetails (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+
+NOT NULL on ALTER TABLE
+alter table persondetails
+modify age int not null
+
+
+
+
+
+
+SQL CHECK Constraint
+
+Example:
+
+CREATE TABLE Individual (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255),
+    CONSTRAINT cc CHECK (Age>=18 AND City='Dhaka')
+);
+
+
+DROP a CHECK Constraint
+alter table individual
+drop CONSTRAINT cc
+
+
+
+CHECK on ALTER TABLE
+alter table individual
+add CONSTRAINT ncc check(age>=20 and city='Borisal')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEFAULT Constraint
+
+CREATE TABLE PersonInfo (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    DOB date,
+    Age int,
+    City varchar(255) DEFAULT 'Dhaka'
+);
+
+DROP a DEFAULT Constraint
+ALTER TABLE Personinfo
+ALTER City DROP DEFAULT;
+
+
+
+
+DEFAULT on ALTER TABLE
+ALTER TABLE Personinfo
+ALTER Age SET DEFAULT 25;
+
+
+
+
+
+
+
+
+
+
+
+ON DELETE CASCADE
+ON DELETE CASCADE clause in MySQL is used to automatically remove the matching records from the child table when we delete the rows from the parent table. It is a kind of referential action related to the foreign key.
+Suppose we have created two tables with a FOREIGN KEY in a foreign key relationship, making both tables a parent and child. Next, we define an ON DELETE CASCADE clause for one FOREIGN KEY that must be set for the other to succeed in the cascading operations. 
+
+
+ON DELETE CASCADE Example
+Let us understand how we can use the ON DELETE CASCADE clause in the MySQL table. First, we are going to create two tables named Employee and Payment. Both tables are related through a foreign key with on delete cascade operation. Here, an Employee is the parent table, and Payment is the child table. The following scripts create both tables along with their records.
+Table: Employee
+1.	CREATE TABLE Employee (  
+2.	  emp_id int(10) NOT NULL,  
+3.	  name varchar(40) NOT NULL,  
+4.	  birthdate date NOT NULL,  
+5.	  gender varchar(10) NOT NULL,  
+6.	  hire_date date NOT NULL,  
+7.	  PRIMARY KEY (emp_id)  
+8.	);  
+
+
+Next, execute the insert query to fill the records.
+1.	INSERT INTO Employee (emp_id, name, birthdate, gender, hire_date) VALUES  
+2.	(101, 'Bryan', '1988-08-12', 'M', '2015-08-26'),  
+3.	(102, 'Joseph', '1978-05-12', 'M', '2014-10-21'),  
+4.	(103, 'Mike', '1984-10-13', 'M', '2017-10-28'),  
+5.	(104, 'Daren', '1979-04-11', 'M', '2006-11-01'),  
+6.	(105, 'Marie', '1990-02-11', 'F', '2018-10-12');  
+
+
+
+
+
+
+
+SELECT * FROM `employee`
+
+emp_id name	 birthdate   gender	hire_date	
+101	Bryan	1988-08-12	M	2015-08-26	
+102	Joseph	1978-05-12	M	2014-10-21	
+103	Mike	1984-10-13	M	2017-10-28	
+104	Daren	1979-04-11	M	2006-11-01	
+105	Marie	1990-02-11	F	2018-10-12	
+
+
+
+
+
+Table: Payment
+1.	CREATE TABLE Payment (  
+2.	  payment_id int(10) PRIMARY KEY NOT NULL,  
+3.	  emp_id int(10) NOT NULL,  
+4.	  amount float NOT NULL,  
+5.	  payment_date date NOT NULL,  
+6.	  FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE CASCADE  
+7.	);  
+
+Next, execute the insert statement to fill the records into a table.
+1.	INSERT INTO Payment (payment_id, emp_id, amount, payment_date) VALUES   
+2.	(301, 101, 1200, '2015-09-15'),  
+3.	(302, 101, 1200, '2015-09-30'),  
+4.	(303, 101, 1500, '2015-10-15'),  
+5.	(304, 101, 1500, '2015-10-30'),  
+6.	(305, 102, 1800, '2015-09-15'),  
+7.	(306, 102, 1800, '2015-09-30');  
+
+SELECT * FROM `payment`
+
+payment_id	emp_id	amount	payment_date	
+301		101		1200		2015-09-15	
+302		101		1200		2015-09-30	
+303		101		1500		2015-10-15	
+304		101		1500		2015-10-30	
+305		102		1800		2015-09-15	
+306		102		1800		2015-09-30	
+
+
+
+Let us delete data from the parent table Employee. To do this, execute the following statement:
+
+DELETE FROM Employee WHERE emp_id = 102;  
+
+The above statement will delete the employee records whose emp_id = 102 and referencing data into the child table. We can verify the data using the SELECT statement that will give the following output:
+
+SELECT * FROM `employee`
+
+emp_id	name	birthdate	gender	hire_date	
+101		Bryan	1988-08-12	M		2015-08-26	
+103		Mike	1984-10-13	M		2017-10-28	
+104		Daren	1979-04-11	M		2006-11-01	
+105		Marie	1990-02-11	F		2018-10-12	
+
+
+SELECT * FROM `payment`
+payment_id	emp_id	amount	payment_date	
+301		101		1200		2015-09-15	
+302		101		1200		2015-09-30	
+303		101		1500		2015-10-15	
+304		101		1500		2015-10-30	
+
+In the above output, we can see that all the rows referencing to emp_id = 102 were automatically deleted from both tables.
+
+------------
+
